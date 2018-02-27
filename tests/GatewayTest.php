@@ -29,8 +29,7 @@ class GatewayTest extends GatewayTestCase
 
 		$this->authorize_options = array(
 			'terminalId' => getenv('TERMINAL_ID'),
-			'requestId' => 'b6858e14f66ac5e6ef2c5804572de9fb',
-			'amount' => '10.00',
+			'amount' => '12.34',
 			'currency' => 'EUR',
             'description' => 'Unit test transaction',
 			'returnUrl' => 'https://www.example.com/success',
@@ -57,7 +56,6 @@ class GatewayTest extends GatewayTestCase
 	{
 		$this->setMockHttpResponse('AssertSuccess.txt');
 		$response = $this->gateway->assertTransaction(array(
-			'requestId' => 'b6858e14f66ac5e6ef2c5804572de9fb',
 			'transactionReference' => '6qioac91i6xtw4tphjs4wm5in'
 		))->send();
 
@@ -78,7 +76,6 @@ class GatewayTest extends GatewayTestCase
 	{
 		$this->setMockHttpResponse('CaptureSuccess.txt');
 		$response = $this->gateway->capture(array(
-			'requestId' => 'b6858e14f66ac5e6ef2c5804572de9fb',
 			'transactionReference' => '3792ndA0An79SAGjvM63bG9vpUpb' // This is the Authorization ID!
 		))->send();
 
@@ -91,7 +88,6 @@ class GatewayTest extends GatewayTestCase
 	{
 		$this->setMockHttpResponse('VoidSuccess.txt');
 		$response = $this->gateway->void(array(
-			'requestId' => 'b6858e14f66ac5e6ef2c5804572de9fb',
 			'transactionReference' => 'U0472EbxhGAbUAInQpMMAjnx9d8b' // This is the Authorization ID!
 		))->send();
 

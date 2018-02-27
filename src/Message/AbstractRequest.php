@@ -9,6 +9,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 	const SPEC_VERSION = '1.8';
 
 	private $retry = 0;
+	private $request_id;
 
 	public function getUsername()
     {
@@ -40,41 +41,26 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('customerId', $value);
     }
 
-    public function getRequestId()
-    {
-        return $this->getParameter('requestId');
-    }
-
-    public function setRequestId($value)
-    {
-        return $this->setParameter('requestId', $value);
-    }
-
-	public function getTerminalId()
-    {
-        return $this->getParameter('terminalId');
-    }
-
-    public function setTerminalId($value)
-    {
-        return $this->setParameter('terminalId', $value);
-    }
-
 	public function getData()
 	{
-		$this->validate('customerId', 'requestId');
+		$this->validate('customerId');
 
 		return array(
 			'RequestHeader' => array(
 				'SpecVersion' => self::SPEC_VERSION,
 				'CustomerId' => $this->getCustomerId(),
-				'RequestId' => $this->getRequestId()
 			),
 		);
 	}
 
 	public function sendData($data)
     {
+		if ( ! isset($this->request_id)) {
+			// Must stay the same for any retry attempts
+			$this->request_id = uniqid();
+		}
+
+		$data['RequestHeader']['RequestId'] = $this->request_id;
 		$data['RequestHeader']['RetryIndicator'] = $this->retry++;
 
 		$httpRequest = $this->httpClient->post($this->getEndpoint(), array(

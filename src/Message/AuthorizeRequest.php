@@ -45,11 +45,32 @@ namespace Omnipay\SaferPay\Message;
 class AuthorizeRequest extends AbstractRequest
 {
 	/**
+	 * Set Terminal ID
+	 *
+	 * @param string $value
+	 * @return $this
+	 */
+	public function setTerminalId($value)
+    {
+        return $this->setParameter('terminalId', $value);
+    }
+	
+	/**
+	 * Get Terminal ID
+	 * 
+	 * @return string
+	 */
+	public function getTerminalId()
+    {
+        return $this->getParameter('terminalId');
+    }
+
+	/**
 	 * Unambiguous order identifier defined by the merchant/ shop. This identifier might be used as reference later on.
 	 * Length: 1 to 80.
 	 *
 	 * @param string $value
-	 * @return $this;
+	 * @return $this
 	 */
 	public function setOrderId($value)
 	{
@@ -134,7 +155,7 @@ class AuthorizeRequest extends AbstractRequest
 
     public function getData()
     {
-        $this->validate('amount', 'description', 'returnUrl', 'failureUrl');
+        $this->validate('terminalId', 'amount', 'description', 'returnUrl', 'failureUrl');
 
 		$data = array(
 			'TerminalId' => $this->getTerminalId(),

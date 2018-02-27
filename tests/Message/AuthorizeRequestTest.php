@@ -14,7 +14,6 @@ class AuthorizeRequestTest extends TestCase
 			'password' => getenv('SP_PASSWORD'),
 			'customerId' => getenv('CUSTOMER_ID'),
 			'terminalId' => getenv('TERMINAL_ID'),
-			'requestId' => md5(time()),
 
             'amount' => '10.00',
 			'currency' => 'EUR',
