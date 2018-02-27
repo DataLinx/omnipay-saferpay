@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Cache-Control: no-store, no-cache
+Content-Length: 193
+Content-Type: application/json; charset=utf-8
+Strict-Transport-Security: max-age=31536000
+Date: Tue, 27 Feb 2018 10:29:35 GMT
+Connection: close
+
+{"ResponseHeader":{"SpecVersion":"1.8","RequestId":"b6858e14f66ac5e6ef2c5804572de9fb"},"TransactionId":"3792ndA0An79SAGjvM63bG9vpUpb","Status":"CAPTURED","Date":"2018-02-27T11:29:35.687+01:00"}

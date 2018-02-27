@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Cache-Control: no-store, no-cache
+Content-Length: 804
+Content-Type: application/json; charset=utf-8
+Strict-Transport-Security: max-age=31536000
+Date: Tue, 27 Feb 2018 09:22:28 GMT
+Connection: close
+
+{"ResponseHeader":{"SpecVersion":"1.8","RequestId":"b6858e14f66ac5e6ef2c5804572de9fb"},"Transaction":{"Type":"PAYMENT","Status":"AUTHORIZED","Id":"3792ndA0An79SAGjvM63bG9vpUpb","Date":"2018-02-27T09:43:45.817+01:00","Amount":{"Value":"1000","CurrencyCode":"EUR"},"AcquirerName":"VISA Saferpay Test","SixTransactionReference":"0:0:3:3792ndA0An79SAGjvM63bG9vpUpb","ApprovalCode":"000000"},"PaymentMeans":{"Brand":{"PaymentMethod":"VISA","Name":"VISA"},"DisplayText":"xxxx xxxx xxxx 0004","Card":{"MaskedNumber":"xxxxxxxxxxxx0004","ExpYear":2018,"ExpMonth":2,"HolderName":"Yamada Taro","CountryCode":"JP"}},"Payer":{"IpAddress":"84.255.237.151","IpLocation":"SI"},"ThreeDs":{"Authenticated":true,"LiabilityShift":true,"Xid":"MCpIHQ1aSS9sBChHHGwFUz4OVgE=","VerificationValue":"AAABBIIFmAAAAAAAAAAAAAAAAAA="}}

@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Cache-Control: no-store, no-cache
+Content-Length: 272
+Content-Type: application/json; charset=utf-8
+Strict-Transport-Security: max-age=31536000
+Date: Tue, 27 Feb 2018 08:41:42 GMT
+Connection: close
+
+{"ResponseHeader":{"SpecVersion":"1.8","RequestId":"b6858e14f66ac5e6ef2c5804572de9fb"},"Token":"6qioac91i6xtw4tphjs4wm5in","Expiration":"2018-02-27T10:41:42.061+01:00","RedirectUrl":"https://test.saferpay.com/vt2/api/PaymentPage/243155/17886671/6qioac91i6xtw4tphjs4wm5in"}

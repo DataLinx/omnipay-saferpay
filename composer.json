@@ -1,0 +1,40 @@
+{
+    "name": "datalinx/omnipay-saferpay",
+    "type": "library",
+    "description": "SaferPay driver for the Omnipay payment processing library",
+    "keywords": [
+        "SaferPay",
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment"
+    ],
+    "homepage": "https://github.com/datalinx/omnipay-saferpay",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Omer Sabic",
+            "email": "omer.sabic@gmail.com"
+        },
+        {
+            "name": "Omnipay Contributors",
+            "homepage": "https://github.com/datalinx/omnipay-saferpay/contributors"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\SaferPay\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0",
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}

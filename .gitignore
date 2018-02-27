@@ -1,0 +1,13 @@
+/vendor
+composer.lock
+composer.phar
+phpunit.xml
+.directory
+.idea/
+nbproject/
+dirlist.app
+dirlist.cache
+dirlist.vendor
+documents/
+.env
+tests/Mock/log/
