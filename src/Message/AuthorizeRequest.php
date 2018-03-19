@@ -153,6 +153,48 @@ class AuthorizeRequest extends AbstractRequest
 		return $this->getParameter('failureUrl');
 	}
 
+	/**
+	 * Optional e-mail address to which a confirmation email will be sent for successful authorizations.
+	 *
+	 * @param string $value
+	 * @return $this
+	 */
+	public function setMerchantEmail($value)
+	{
+		return $this->setParameter('merchantEmail', $value);
+	}
+
+	/**
+	 * Get merchant e-mail address
+	 *
+	 * @return string
+	 */
+	public function getMerchantEmail()
+	{
+		return $this->getParameter('merchantEmail');
+	}
+
+	/**
+	 * Optional payer e-mail address to which a confirmation email will be sent for successful authorizations.
+	 *
+	 * @param string $value
+	 * @return $this
+	 */
+	public function setPayerEmail($value)
+	{
+		return $this->setParameter('payerEmail', $value);
+	}
+
+	/**
+	 * Get payer e-mail address
+	 *
+	 * @return string
+	 */
+	public function getPayerEmail()
+	{
+		return $this->getParameter('payerEmail');
+	}
+
     public function getData()
     {
         $this->validate('terminalId', 'amount', 'description', 'returnUrl', 'failureUrl');
@@ -187,6 +229,14 @@ class AuthorizeRequest extends AbstractRequest
 
 		if ($this->getNotifyUrl()) {
 			$data['Notification']['NotifyUrl'] = $this->getNotifyUrl();
+		}
+
+		if ($this->getMerchantEmail()) {
+			$data['Notification']['MerchantEmail'] = $this->getMerchantEmail();
+		}
+
+		if ($this->getMerchantEmail()) {
+			$data['Notification']['PayerEmail'] = $this->getPayerEmail();
 		}
 
 		return array_replace_recursive(parent::getData(), $data);
