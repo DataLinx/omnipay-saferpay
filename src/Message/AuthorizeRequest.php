@@ -203,7 +203,7 @@ class AuthorizeRequest extends AbstractRequest
 			'TerminalId' => $this->getTerminalId(),
 			'Payment' => array(
 				'Amount' => array(
-					'Value' => intval($this->getAmount() * intval('1'. str_repeat('0', $this->getCurrencyDecimalPlaces()))),
+                    'Value' => (int)round($this->getAmount() * intval('1'. str_repeat('0', $this->getCurrencyDecimalPlaces()))),
 					'CurrencyCode' => $this->getCurrency()
 				),
 				'Description' => $this->getDescription(),
