@@ -3,6 +3,7 @@
 namespace Omnipay\SaferPay;
 
 use Omnipay\Common\AbstractGateway;
+use Omnipay\SaferPay\Message\BatchCloseRequest;
 
 /**
  * SaferPay Gateway
@@ -155,5 +156,17 @@ class Gateway extends AbstractGateway
     public function void(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\SaferPay\Message\VoidRequest', $parameters);
+    }
+
+    /**
+     * Batch close transactions.
+     *
+     * @link https://saferpay.github.io/jsonapi/#Payment_v1_Batch_Close
+     * @param array $parameters
+     * @return \Omnipay\Common\Message\AbstractRequest|BatchCloseRequest
+     */
+    public function batchClose(array $parameters = array())
+    {
+        return $this->createRequest(BatchCloseRequest::class, $parameters);
     }
 }
